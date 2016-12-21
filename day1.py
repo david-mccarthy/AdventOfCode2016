@@ -52,7 +52,7 @@ def main():
       else:
         visited.append(coordinates)
 
-  print " First puzzle:", int(math.fabs(coordinates[0]) + math.fabs(coordinates[1]))
+  print " First puzzle:", distance(coordinates[0],coordinates[1])
   print "Second puzzle:", distance(ans[0], ans[1])
 
 
