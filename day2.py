@@ -39,24 +39,21 @@ def main():
   [None,"A","B","C",None],
   [None,None,"D",None,None]]
 
-  coords = {"x":1,"y":1} # Starting coordinates for puzzle one: puzzle[1][1] == 5
-  
+  coords1 = {"x":1,"y":1} # Starting coordinates for puzzle one: puzzle[1][1] == 5
+  coords2 = {"x":0,"y":2} # Starting coordinates for puzzle two
+
   with open("inputs/day2") as f:
     directions = f.readlines()
 
   code1 = ""
   code2 = ""
   for line in directions:
-    coords = move(coords,line,partOnePoints)
-    code1 += partOnePoints[coords["y"]][coords["x"]]
-  print "Part one:",code1
+    coords1 = move(coords1,line,partOnePoints)
+    code1 += partOnePoints[coords1["y"]][coords1["x"]]
 
-  #Make sure the coordinates for part 2 are set correctly
-  # puzzle[2][0] == 5 
-  coords = {"x":0,"y":2}
-  for line in directions:
-    coords = move(coords,line,partTwoPoints)
-    code2 += partTwoPoints[coords["y"]][coords["x"]]
+    coords2 = move(coords2,line,partTwoPoints)
+    code2 += partTwoPoints[coords2["y"]][coords2["x"]]
+  print "Part one:",code1
   print "Part two:",code2
     
 if __name__ == "__main__":
